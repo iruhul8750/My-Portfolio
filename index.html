@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruhul Islam - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes letterDrop {
+            0% { transform: translateY(-20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Cyberpunk scanline effect */
+        .cyberpunk-theme::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 100;
+            animation: scanline 6s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="theme-overlay"></div>
+
+    <header>
+        <div class="navbar">
+            <h1 class="logo home-btn">Ruhul Islam</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li>
+                        <div class="theme-switcher">
+                            <button class="theme-toggle"><i class="fas fa-palette"></i></button>
+                            <div class="theme-options">
+                                <div class="theme-option" data-theme="default" title="Default Theme">
+                                    <div class="theme-preview default-theme"></div>
+                                    <span>Default</span>
+                                </div>
+                                <div class="theme-option" data-theme="cyberpunk" title="Cyberpunk Theme">
+                                    <div class="theme-preview cyberpunk-theme"></div>
+                                    <span>Cyberpunk</span>
+                                </div>
+                                <div class="theme-option" data-theme="dark-matrix" title="Dark Matrix Theme">
+                                    <div class="theme-preview dark-matrix-theme"></div>
+                                    <span>Dark Matrix</span>
+                                </div>
+                                <div class="theme-option" data-theme="neon-dream" title="Neon Dream Theme">
+                                    <div class="theme-preview neon-dream-theme"></div>
+                                    <span>Neon Dream</span>
+                                </div>
+                                <div class="theme-option" data-theme="hacker" title="Hacker Theme">
+                                    <div class="theme-preview hacker-theme"></div>
+                                    <span>Hacker</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="section-animate">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="animate__animated animate__fadeInDown">Hi, I'm Ruhul Islam</h2>
+                <h3 class="animate__animated animate__fadeInUp">Cyber Security Enthusiast & Developer</h3>
+                <p class="animate__animated animate__fadeInUp">Aspiring engineer passionate about solving problems with creativity in Cyber Security and Software Development</p>
+                <a href="#contact" class="btn animate__animated animate__fadeInUp">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section-animate">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Aspiring engineer who is led by curiosity and a desire to solve problems with creativity and originality. Looking for opportunities to use and expand my technical and engineering knowledge in the space of Cyber Security, Software Development, Programming, and Marketing. Passionate about building innovative solutions that make a meaningful impact, I thrive in collaborative environments that challenge me to grow. With a strong foundation in computer science and a keen interest in emerging technologies, I am eager to contribute to forward-thinking projects while continuously learning and evolving as a professional. I believe in blending technical expertise with strategic thinking to drive real-world results.</p>
+                    <div class="desired-spaces">
+                        <h4>Desired Spaces:</h4>
+                        <div class="space-tags">
+                            <span>Security Analyst</span>
+                            <span>Vulnerability Management</span>
+                            <span>Penetration Testing</span>
+                            <span>Application Security</span>
+                            <span>Endpoint Security</span>
+                            <span>Python Developer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="glow"></div>
+                        <img src="https://github.com/iruhul8750/Hosted-Images/blob/main/dp.jpeg?raw=true/300" alt="Ruhul Islam" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="container">
+            <h2 class="section-animate">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>B.Tech (Computer Science)</h3>
+                        <p>Global Institute of Technology and Management – Affiliated to MDU, Rohtak</p>
+                        <p style="text-align: center;">(2021–25)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Class 12th Board (CBSE Board)</h3>
+                        <p>CD International School, Sec 71, Gurugram, Haryana – 122001</p>
+                        <p>Result – 92% (Batch of 2020–21)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Class 10th Board (NIOS)</h3>
+                        <p>Delhi Public School, Sector 45, Gurugram, Haryana</p>
+                        <p>Result – 81% (Batch of 2018–19)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-animate">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-tags">
+                        <span>Python</span>
+                        <span>Java</span>
+                        <span>HTML/CSS</span>
+                        <span>JavaScript</span>
+                        <span>Linux/Kali Linux</span>
+                        <span>Data Management in Excel Sheet</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Security Tools</h3>
+                    <div class="skill-tags">
+                        <span>Nessus</span>
+                        <span>PowerAutomate</span>
+                        <span>Rootshell Security Portal</span>
+                        <span>Metasploitable</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span>Creative Thinking</span>
+                        <span>Collaboration</span>
+                        <span>Communication</span>
+                        <span>Adaptability</span>
+                        <span>Mail Drafting</span>
+                        <span>Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-animate">Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-temperature-high"></i>
+                    </div>
+                    <h3>Temperature Converter</h3>
+                    <p>Built using Java to convert between Celsius, Fahrenheit, and Kelvin</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3>Live Weather Update</h3>
+                    <p>Python application that fetches and displays live weather data</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Custom Chatbot</h3>
+                    <p>Interactive chatbot built with Python, HTML, CSS, and JavaScript</p>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Steganography Web Tool</h3>
+                    <p>Web-based tool for hiding messages in images using Python, HTML, CSS, JavaScript</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-animate">Experience</h2>
+            <div class="experience-cards">
+                <div class="experience-card">
+                    <h3>Internship</h3>
+                    <p class="company">eSecForte Technologies Pvt. Ltd</p>
+                    <p class="duration">February-April 2025</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Internship</h3>
+                    <p class="company">Compass Group India Pvt. Ltd</p>
+                    <p class="duration">June-July 2024</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Training</h3>
+                    <p class="company">Keen & Able Computers Pvt. Ltd. Noida</p>
+                    <p class="duration"> June-July 2024</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Volunteering</h3>
+                    <p class="company">Bagiya School | Sanshil Foundation</p>
+                    <p class="duration">2021 – Present</p>
+                    <p class="responsibilities">Key responsibilities: Creating and managing student database in Excell Sheet, Teaching Computers and IT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-animate">Certifications & Awards</h2>
+            <div class="certs-container">
+                <div class="cert-card">
+                    <i class="fas fa-trophy"></i>
+                    <p>1st Position at Techno vision 2024 at Photography Competition</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-trophy"></i>
+                    <p>2nd Position at Techno vision 2024 at Prototype Model Competition (Software)</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-trophy"></i>
+                    <p>3rd Position at Techno vision 2022 at Prototype Model Competition (Software)</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-certificate"></i>
+                    <p>MongoDB Atlas Security Certification by MongoDB</p>
+                </div>
+                <div class="cert-card">
+                    <i class="fas fa-award"></i>
+                    <p>Certificate of Merit for organizing and leading the Literary Club Event at College 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-animate">Contact Me</h2>
+            <div class="contact-content">
+                <div class="contact-info section-animate">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>iruhul8750@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 - 7678361127</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Gurugram, Haryana – 122001</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="linkedin.com/in/ruhul-islam2022" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <form id="contact-form" class="section-animate">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Ruhul Islam. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="main.js"></script>
+</body>
+</html>
