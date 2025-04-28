@@ -1089,3 +1089,132 @@ footer p {
         margin-left: 0;
     }
 }
+
+/* Social Media Sidebar */
+.social-sidebar {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    height: 220px;
+    display: flex;
+    align-items: center;
+}
+
+.social-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 10px;
+    background-color: var(--nav-bg);
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(-0%);
+}
+
+.social-sidebar:hover .social-container {
+    transform: translateX(0);
+}
+
+.social-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateX(0);
+}
+
+.social-btn:hover {
+    transform: translateX(10px);
+}
+
+.social-btn .tooltip {
+    position: absolute;
+    left: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--nav-bg);
+    color: var(--text-color);
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-btn:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    left: 70px;
+}
+
+/* Social button colors */
+.linkedin { background-color: #0077B5; }
+.github { background-color: #333; }
+.twitter { background-color: #1DA1F2; }
+.instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+/* Animation */
+.social-sidebar {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.social-sidebar.visible {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .social-sidebar {
+        flex-direction: row;
+        bottom: 20px;
+        top: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        height: auto;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .social-container {
+        flex-direction: row;
+        transform: translateY(100%);
+        padding: 10px 15px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .social-sidebar:hover .social-container {
+        transform: translateY(0);
+    }
+
+    .social-btn:hover {
+        transform: translateY(-10px);
+    }
+
+    .social-btn .tooltip {
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-btn:hover .tooltip {
+        top: -50px;
+        left: 50%;
+    }
+}

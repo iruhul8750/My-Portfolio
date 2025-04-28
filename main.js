@@ -274,10 +274,34 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.style.transform = 'scale(1)';
     });
 
+    // Social sidebar animation
+    const socialSidebar = document.querySelector('.social-sidebar');
+    setTimeout(() => {
+        socialSidebar.classList.add('visible');
+    }, 1000);
+
+    // Add hover effects for social buttons
+    const socialButtons = document.querySelectorAll('.social-btn');
+    socialButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.transform = 'translateX(10px)';
+            if (window.innerWidth <= 768) {
+                button.style.transform = 'translateY(-10px)';
+            }
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'translateX(0)';
+            if (window.innerWidth <= 768) {
+                button.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
     // Akoode-inspired animations
     const animateOnScroll = () => {
         const elements = document.querySelectorAll(
-            '.section-animate, .timeline-item, .skill-tags, .project-card, .experience-card, .cert-card, #contact-form'
+            '.section-animate, .timeline-item, .skill-tags, .project-card, .experience-card, .cert-card, #contact-form, .social-sidebar'
         );
 
         const observer = new IntersectionObserver((entries) => {
@@ -317,5 +341,15 @@ document.addEventListener('DOMContentLoaded', function() {
         option.addEventListener('click', () => {
             setTimeout(animateOnScroll, 500);
         });
+    });
+
+    // Handle window resize for social sidebar
+    window.addEventListener('resize', function() {
+        const socialContainer = document.querySelector('.social-container');
+        if (window.innerWidth <= 768) {
+            socialContainer.style.transform = 'translateY(100%)';
+        } else {
+            socialContainer.style.transform = 'translateX(-70%)';
+        }
     });
 });
