@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize particles.js with theme-specific configuration
     function initParticles() {
+        // Destroy existing particles if they exist
+        if (window.pJSDom && window.pJSDom.length > 0) {
+            window.pJSDom[0].pJS.fn.vendors.destroypJS();
+        }
+
         particlesJS('particles-js', {
             particles: {
                 number: {
@@ -93,13 +98,13 @@ document.addEventListener('DOMContentLoaded', function() {
             retina_detect: true
         });
     }
-
     // Initialize particles on load
     initParticles();
 
     // Theme switching functionality
     const themeOptions = document.querySelectorAll('.theme-option');
     const html = document.documentElement;
+    let themePreviewTimeout;
 
     // Check for saved theme preference
     const savedTheme = localStorage.getItem('portfolio-theme');
@@ -107,24 +112,58 @@ document.addEventListener('DOMContentLoaded', function() {
         html.setAttribute('data-theme', savedTheme);
     }
 
-    // Apply theme selection
+    // Theme preview on hover
     themeOptions.forEach(option => {
-        option.addEventListener('click', function() {
+        option.addEventListener('mouseenter', function() {
+            clearTimeout(themePreviewTimeout);
             const theme = this.getAttribute('data-theme');
-            html.setAttribute('data-theme', theme);
-            localStorage.setItem('portfolio-theme', theme);
-
-            // Reinitialize particles with new theme colors
-            if (window.pJSDom && window.pJSDom.length > 0) {
-                window.pJSDom[0].pJS.fn.vendors.destroypJS();
-                initParticles();
-            }
+            html.setAttribute('data-theme-preview', theme);
 
             // Add special effects for certain themes
             if (theme === 'cyberpunk') {
                 document.body.classList.add('cyberpunk-theme');
+            } else if (theme === 'glitchcore') {
+                document.body.classList.add('glitchcore-theme');
             } else {
                 document.body.classList.remove('cyberpunk-theme');
+                document.body.classList.remove('glitchcore-theme');
+            }
+        });
+
+        option.addEventListener('mouseleave', function() {
+            themePreviewTimeout = setTimeout(() => {
+                html.removeAttribute('data-theme-preview');
+                if (savedTheme === 'cyberpunk') {
+                    document.body.classList.add('cyberpunk-theme');
+                } else if (savedTheme === 'glitchcore') {
+                    document.body.classList.add('glitchcore-theme');
+                } else {
+                    document.body.classList.remove('cyberpunk-theme');
+                    document.body.classList.remove('glitchcore-theme');
+                }
+            }, 100);
+        });
+
+        option.addEventListener('click', function() {
+            clearTimeout(themePreviewTimeout);
+            const theme = this.getAttribute('data-theme');
+            html.setAttribute('data-theme', theme);
+            html.removeAttribute('data-theme-preview');
+            localStorage.setItem('portfolio-theme', theme);
+
+            // Reinitialize particles with new theme colors
+            initParticles();
+
+            // Add special effects for certain themes
+            if (theme === 'cyberpunk') {
+                document.body.classList.add('cyberpunk-theme');
+                document.body.classList.remove('glitchcore-theme');
+            } else if (theme === 'glitchcore') {
+                document.body.classList.add('glitchcore-theme');
+                document.body.classList.remove('cyberpunk-theme');
+            } else {
+                document.body.classList.remove('cyberpunk-theme');
+                document.body.classList.remove('glitchcore-theme');
             }
         });
     });
@@ -132,6 +171,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set initial theme class
     if (savedTheme === 'cyberpunk') {
         document.body.classList.add('cyberpunk-theme');
+    } else if (savedTheme === 'glitchcore') {
+        document.body.classList.add('glitchcore-theme');
     }
 
     // Home button functionality

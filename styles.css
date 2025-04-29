@@ -5,27 +5,8 @@
     box-sizing: border-box;
 }
 
-/* Neon Dream as Default Theme */
+/* Default Theme */
 :root {
-    --primary-color: #ff00ff;
-    --secondary-color: #00ffff;
-    --accent-color: #ffff00;
-    --text-color: #ffffff;
-    --text-light: #cccccc;
-    --bg-color: #1a1a2e;
-    --card-bg: #16213e;
-    --nav-bg: rgba(22, 33, 62, 0.95);
-    --timeline-bg: #0f3460;
-    --theme-overlay: linear-gradient(45deg, rgba(255, 0, 255, 0.05), rgba(0, 255, 255, 0.05));
-    --font-main: 'Poppins', sans-serif;
-    --font-special: 'Poppins', sans-serif;
-    --particle-color: #ff00ff;
-    --glow-effect: 0 0 15px #ff00ff, 0 0 30px #00ffff;
-    --theme-pattern: none;
-}
-
-/* Other Themes */
-[data-theme="default"] {
     --primary-color: #4361ee;
     --secondary-color: #3a0ca3;
     --accent-color: #f72585;
@@ -35,12 +16,16 @@
     --card-bg: #ffffff;
     --nav-bg: rgba(255, 255, 255, 0.95);
     --timeline-bg: #f8f9fa;
+    --footer-bg: #3a0ca3;
+    --footer-text: #ffffff;
     --theme-overlay: transparent;
     --font-main: 'Poppins', sans-serif;
     --particle-color: #4361ee;
     --glow-effect: none;
+    --theme-pattern: none;
 }
 
+/* Cyberpunk Theme */
 [data-theme="cyberpunk"] {
     --primary-color: #ff2a6d;
     --secondary-color: #05d9e8;
@@ -51,42 +36,88 @@
     --card-bg: #0d0221;
     --nav-bg: rgba(13, 2, 33, 0.95);
     --timeline-bg: #170a2b;
+    --footer-bg: #050a1e;
+    --footer-text: #05d9e8;
     --theme-overlay: rgba(5, 217, 232, 0.05);
     --font-main: 'Courier New', monospace;
     --particle-color: #05d9e8;
     --glow-effect: 0 0 10px #ff2a6d, 0 0 20px #d300c5, 0 0 30px #05d9e8;
 }
 
-[data-theme="dark-matrix"] {
-    --primary-color: #00ff41;
-    --secondary-color: #008f11;
-    --accent-color: #00ff41;
-    --text-color: #00ff41;
-    --text-light: #008f11;
-    --bg-color: #0a0a0a;
-    --card-bg: #0a0a0a;
-    --nav-bg: rgba(10, 10, 10, 0.95);
-    --timeline-bg: #121212;
-    --theme-overlay: rgba(0, 255, 65, 0.03);
+/* Retro Spy Theme */
+[data-theme="retro-spy"] {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffe66d;
+    --text-color: #292f36;
+    --text-light: #4a4a4a;
+    --bg-color: #f7fff7;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(247, 255, 247, 0.95);
+    --timeline-bg: #e2f3e2;
+    --footer-bg: #292f36;
+    --footer-text: #ffe66d;
+    --theme-overlay: rgba(78, 205, 196, 0.05);
     --font-main: 'Courier New', monospace;
-    --particle-color: #00ff41;
-    --glow-effect: 0 0 5px #00ff41;
+    --particle-color: #4ecdc4;
+    --glow-effect: none;
 }
 
-[data-theme="hacker"] {
-    --primary-color: #33ff33;
-    --secondary-color: #228b22;
-    --accent-color: #ff3333;
-    --text-color: #33ff33;
-    --text-light: #228b22;
+/* Neon Noir Theme */
+[data-theme="neon-noir"] {
+    --primary-color: #ff3864;
+    --secondary-color: #2de2e6;
+    --accent-color: #f6019d;
+    --text-color: #ffffff;
+    --text-light: #b8b8b8;
+    --bg-color: #0d0221;
+    --card-bg: #1a1a2e;
+    --nav-bg: rgba(26, 26, 46, 0.95);
+    --timeline-bg: #16213e;
+    --footer-bg: #1a1a2e;
+    --footer-text: #2de2e6;
+    --theme-overlay: rgba(45, 226, 230, 0.05);
+    --font-main: 'Poppins', sans-serif;
+    --particle-color: #2de2e6;
+    --glow-effect: 0 0 10px #ff3864, 0 0 20px #f6019d;
+}
+
+/* Cosmic Galaxy Theme */
+[data-theme="cosmic-galaxy"] {
+    --primary-color: #9d65ff;
+    --secondary-color: #6e44ff;
+    --accent-color: #ff65a3;
+    --text-color: #ffffff;
+    --text-light: #cccccc;
+    --bg-color: #0a0e1a;
+    --card-bg: #161b33;
+    --nav-bg: rgba(22, 27, 51, 0.95);
+    --timeline-bg: #1e2749;
+    --footer-bg: #161b33;
+    --footer-text: #ff65a3;
+    --theme-overlay: linear-gradient(45deg, rgba(157, 101, 255, 0.05), rgba(110, 68, 255, 0.05));
+    --font-main: 'Poppins', sans-serif;
+    --particle-color: #9d65ff;
+    --glow-effect: 0 0 15px #9d65ff, 0 0 30px #6e44ff;
+}
+
+/* Glitchcore Theme */
+[data-theme="glitchcore"] {
+    --primary-color: #ff00ff;
+    --secondary-color: #00ffff;
+    --accent-color: #ffff00;
+    --text-color: #ffffff;
+    --text-light: #cccccc;
     --bg-color: #000000;
     --card-bg: #111111;
-    --nav-bg: rgba(0, 0, 0, 0.95);
-    --timeline-bg: #0a0a0a;
-    --theme-overlay: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9));
+    --nav-bg: rgba(17, 17, 17, 0.95);
+    --timeline-bg: #222222;
+    --footer-bg: #111111;
+    --footer-text: #ffff00;
+    --theme-overlay: linear-gradient(45deg, rgba(255, 0, 255, 0.05), rgba(0, 255, 255, 0.05));
     --font-main: 'Courier New', monospace;
-    --particle-color: #33ff33;
-    --glow-effect: 0 0 10px #33ff33;
+    --particle-color: #ff00ff;
+    --glow-effect: 0 0 10px #ff00ff, 0 0 20px #00ffff;
 }
 
 body {
@@ -158,6 +189,15 @@ h2::after {
     box-shadow: 0 6px 20px rgba(247, 37, 133, 0.4);
 }
 
+.btn-secondary {
+    background-color: var(--secondary-color);
+    margin-left: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+}
+
 /* Theme Switcher Styles */
 .theme-switcher {
     position: relative;
@@ -220,9 +260,10 @@ h2::after {
 
 .default-theme { background: linear-gradient(135deg, #4361ee, #3a0ca3, #f72585); }
 .cyberpunk-theme { background: linear-gradient(135deg, #ff2a6d, #05d9e8, #d300c5); }
-.dark-matrix-theme { background: linear-gradient(135deg, #00ff41, #008f11); }
-.neon-dream-theme { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
-.hacker-theme { background: linear-gradient(135deg, #33ff33, #228b22, #ff3333); }
+.retro-spy-theme { background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #ffe66d); }
+.neon-noir-theme { background: linear-gradient(135deg, #ff3864, #2de2e6, #f6019d); }
+.cosmic-galaxy-theme { background: linear-gradient(135deg, #9d65ff, #6e44ff, #ff65a3); }
+.glitchcore-theme { background: linear-gradient(135deg, #ff00ff, #00ffff, #ffff00); }
 
 /* Particles Container */
 #particles-js {
@@ -233,6 +274,7 @@ h2::after {
     left: 0;
     z-index: -1;
     background-color: transparent;
+    pointer-events: none;
 }
 
 /* Header & Navigation */
@@ -402,6 +444,12 @@ h2::after {
     animation-delay: 0.8s;
 }
 
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
 /* About Section */
 #about {
     padding: 100px 0;
@@ -430,8 +478,8 @@ h2::after {
 /* Image Styles */
 .image-wrapper {
     position: relative;
-    width: 300px;
-    height: 300px;
+    width: 450px;
+    height: 650px;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -650,6 +698,24 @@ h2::after {
 .project-card p {
     color: var(--text-light);
     font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: inline-block;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.project-link i {
+    margin-right: 5px;
 }
 
 /* Experience Section */
@@ -743,6 +809,44 @@ h2::after {
 .cert-card p {
     color: var(--text-light);
     font-size: 0.95rem;
+}
+
+/* Resume Section */
+#resume {
+    padding: 100px 0;
+    background-color: var(--bg-color);
+}
+
+.resume-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.resume-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.resume-preview {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.resume-preview img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.resume-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 /* Contact Section */
@@ -851,15 +955,17 @@ h2::after {
 
 /* Footer */
 footer {
-    background-color: var(--secondary-color);
-    color: yellow;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     padding: 30px 0;
     text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 footer p {
     margin: 0;
     font-size: 1rem;
+    font-weight: 500;
 }
 
 /* Animations */
@@ -881,6 +987,15 @@ footer p {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
 }
 
 /* Akoode-inspired Animations */
@@ -1058,8 +1173,25 @@ footer p {
         text-align: center;
     }
 
+    .hero-buttons {
+        justify-content: center;
+    }
+
     h2 {
         font-size: 2rem;
+    }
+
+    .resume-content {
+        flex-direction: column;
+    }
+
+    .resume-preview {
+        order: -1;
+        margin-bottom: 30px;
+    }
+
+    .resume-buttons {
+        justify-content: center;
     }
 }
 
@@ -1081,12 +1213,22 @@ footer p {
     }
 
     .image-wrapper {
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 300px;
     }
 
     .navbar nav ul li {
         margin-left: 0;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 15px;
     }
 }
 

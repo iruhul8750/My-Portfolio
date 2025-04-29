@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-
     <style>
         @keyframes letterDrop {
             0% { transform: translateY(-20px); opacity: 0; }
@@ -33,9 +32,35 @@
             animation: scanline 6s linear infinite;
         }
 
+        /* Glitchcore effect */
+        .glitchcore-theme::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(90deg, rgba(255,0,0,0.05) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(255,0,0,0.05) 1px, transparent 1px);
+            background-size: 10px 10px;
+            pointer-events: none;
+            z-index: 99;
+            animation: glitch 0.5s infinite alternate;
+        }
+
         @keyframes scanline {
             0% { background-position: 0 0; }
             100% { background-position: 0 100%; }
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
         }
     </style>
 </head>
@@ -70,6 +95,7 @@
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#resume" class="nav-link">Resume</a></li>
                     <li><a href="#contact" class="nav-link">Contact Me</a></li>
                     <li>
                         <div class="theme-switcher">
@@ -77,23 +103,27 @@
                             <div class="theme-options">
                                 <div class="theme-option" data-theme="default" title="Default Theme">
                                     <div class="theme-preview default-theme"></div>
-                                    <span>Default</span>
+                                    <span>Light</span>
                                 </div>
                                 <div class="theme-option" data-theme="cyberpunk" title="Cyberpunk Theme">
                                     <div class="theme-preview cyberpunk-theme"></div>
                                     <span>Cyberpunk</span>
                                 </div>
-                                <div class="theme-option" data-theme="dark-matrix" title="Dark Matrix Theme">
-                                    <div class="theme-preview dark-matrix-theme"></div>
-                                    <span>Dark Matrix</span>
+                                <div class="theme-option" data-theme="retro-spy" title="Retro Spy Theme">
+                                    <div class="theme-preview retro-spy-theme"></div>
+                                    <span>Retro Spy</span>
                                 </div>
-                                <div class="theme-option" data-theme="neon-dream" title="Neon Dream Theme">
-                                    <div class="theme-preview neon-dream-theme"></div>
-                                    <span>Neon Dream</span>
+                                <div class="theme-option" data-theme="neon-noir" title="Neon Noir Theme">
+                                    <div class="theme-preview neon-noir-theme"></div>
+                                    <span>Neon Noir</span>
                                 </div>
-                                <div class="theme-option" data-theme="hacker" title="Hacker Theme">
-                                    <div class="theme-preview hacker-theme"></div>
-                                    <span>Hacker</span>
+                                <div class="theme-option" data-theme="cosmic-galaxy" title="Cosmic Galaxy Theme">
+                                    <div class="theme-preview cosmic-galaxy-theme"></div>
+                                    <span>Cosmic Galaxy</span>
+                                </div>
+                                <div class="theme-option" data-theme="glitchcore" title="Glitchcore Theme">
+                                    <div class="theme-preview glitchcore-theme"></div>
+                                    <span>Glitchcore</span>
                                 </div>
                             </div>
                         </div>
@@ -109,10 +139,13 @@
     <section id="hero" class="section-animate">
         <div class="container">
             <div class="hero-content">
-                <h2 class="animate__animated animate__fadeInDown">Hi, I'm Ruhul Islam</h2>
-                <h3 class="animate__animated animate__fadeInUp">Cyber Security Enthusiast & Developer</h3>
+                <h2 class="animate__animated animate__fadeInDown name-animation">Hi, I'm Ruhul Islam</h2>
+                <h3 class="animate__animated animate__fadeInUp">Cybersecurity Enthusiast & Developer</h3>
                 <p class="animate__animated animate__fadeInUp">Aspiring engineer passionate about solving problems with creativity in Cyber Security and Software Development</p>
-                <a href="#contact" class="btn animate__animated animate__fadeInUp">Get In Touch</a>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn animate__animated animate__fadeInUp">Get In Touch</a>
+                    <a href="#resume" class="btn btn-secondary animate__animated animate__fadeInUp">View Resume</a>
+                </div>
             </div>
         </div>
     </section>
@@ -138,7 +171,7 @@
                 <div class="about-image">
                     <div class="image-wrapper">
                         <div class="glow"></div>
-                        <img src="https://github.com/iruhul8750/Hosted-Images/blob/main/dp.jpeg?raw=true/300" alt="Ruhul Islam" class="profile-img">
+                        <img src="https://github.com/iruhul8750/Hosted-Images/blob/main/profile1.jpg?raw=true" alt="Ruhul Islam" class="profile-img">
                     </div>
                 </div>
             </div>
@@ -223,6 +256,9 @@
                     </div>
                     <h3>Temperature Converter</h3>
                     <p>Built using Java to convert between Celsius, Fahrenheit, and Kelvin</p>
+                    <a href="https://github.com/iruhul8750/Temperature-Converter" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
                 </div>
                 <div class="project-card">
                     <div class="project-icon">
@@ -230,6 +266,9 @@
                     </div>
                     <h3>Live Weather Update</h3>
                     <p>Python application that fetches and displays live weather data</p>
+                    <a href="https://github.com/iruhul8750/weather-app" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
                 </div>
                 <div class="project-card">
                     <div class="project-icon">
@@ -237,6 +276,9 @@
                     </div>
                     <h3>Custom Chatbot</h3>
                     <p>Interactive chatbot built with Python, HTML, CSS, and JavaScript</p>
+                    <a href="https://github.com/iruhul8750/custom-chatbot" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
                 </div>
                 <div class="project-card">
                     <div class="project-icon">
@@ -244,6 +286,9 @@
                     </div>
                     <h3>Steganography Web Tool</h3>
                     <p>Web-based tool for hiding messages in images using Python, HTML, CSS, JavaScript</p>
+                    <a href="https://github.com/iruhul8750/SteganoVault" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
                 </div>
             </div>
         </div>
@@ -306,6 +351,25 @@
         </div>
     </section>
 
+    <section id="resume">
+        <div class="container">
+            <h2 class="section-animate">Resume</h2>
+            <div class="resume-content">
+                <div class="resume-text">
+                    <p>Download my resume to learn more about my qualifications, experience, and skills.</p>
+                    <div class="resume-buttons">
+                        <a href="Assets/Ruhul-resume.pdf" download class="btn">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                        <a href="Assets/Ruhul-resume.pdf" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-eye"></i> View Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <div class="container">
             <h2 class="section-animate">Contact Me</h2>
@@ -324,7 +388,9 @@
                         <p>Gurugram, Haryana – 122001</p>
                     </div>
                     <div class="social-links">
-
+                        <a href="https://www.linkedin.com/in/ruhulislam2022/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/iruhul8750" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <form id="contact-form" class="section-animate">
@@ -354,7 +420,7 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
