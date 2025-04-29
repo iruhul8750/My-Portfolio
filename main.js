@@ -212,21 +212,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Contact Form Submission
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    // Initialize EmailJS
+    (function() {
+        // Initialize EmailJS with your User ID
+        emailjs.init('iqgRGNr32ByfgZA-S'); // Replace with your actual User ID
 
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
+        // Contact Form Submission with EmailJS
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        if (name && email && message) {
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-            this.reset();
-        } else {
-            alert('Please fill out all fields.');
-        }
-    });
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.textContent;
+
+            // Change button text to indicate loading
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Send form data via EmailJS
+            emailjs.sendForm('service_993ag3c', 'template_t33wvw5', this)
+                .then(function(response) {
+                    alert('Thank you! Your message has been sent successfully.');
+                    document.getElementById('contact-form').reset();
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }, function(error) {
+                    alert('Oops! Something went wrong. Please try again later.');
+                    console.error('EmailJS Error:', error);
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+        });
+    })();
 
     // Initialize ScrollReveal animations
     ScrollReveal().reveal('.animate__animated', {

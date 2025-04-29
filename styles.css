@@ -852,7 +852,7 @@ h2::after {
 /* Footer */
 footer {
     background-color: var(--secondary-color);
-    color: white;
+    color: yellow;
     padding: 30px 0;
     text-align: center;
 }
