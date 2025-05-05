@@ -1,7 +1,6 @@
 
 # Ruhul Islam - Portfolio
 
-![Portfolio Preview](https://github.com/iruhul8750/Hosted-Images/blob/main/profile1.jpg?raw=true)
 
 A dynamic, themeable portfolio website showcasing my cybersecurity expertise, projects, and professional journey with interactive elements and animations.
 
@@ -58,64 +57,6 @@ cd portfolio
 - Double-click `index.html` or
 - Use a local server like Live Server in VS Code
 
-## 🔧 Customization Guide
-
-### Personal Information
-1. Replace profile image in `index.html`:
-```html
-<img src="path/to/your/image.jpg" alt="Your Name" class="profile-img">
-```
-
-2. Update personal details in Contact section:
-```html
-<p>iruhul8750@gmail.com</p>
-<p>+91 - 7678361127</p>
-<p>Your City, Country</p>
-```
-
-### Projects Section
-Edit project cards in `index.html`:
-```html
-<div class="project-card">
-  <div class="project-icon">
-    <i class="fas fa-icon-name"></i>
-  </div>
-  <h3>Project Title</h3>
-  <p>Project description</p>
-  <a href="#" class="project-link">
-    <i class="fab fa-github"></i> View on GitHub
-  </a>
-</div>
-```
-
-### Email Configuration
-1. Sign up at [EmailJS](https://www.emailjs.com/)
-2. Update credentials in `main.js`:
-```javascript
-emailjs.init('YOUR_USER_ID');
-emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formElement);
-```
-
-## 🌈 Theme Development
-
-To add a new theme:
-
-1. Add CSS variables in `styles.css`:
-```css
-[data-theme="new-theme"] {
-  --primary-color: #yourcolor;
-  --secondary-color: #yourcolor;
-  /* other variables */
-}
-```
-
-2. Add theme preview in `index.html`:
-```html
-<div class="theme-option" data-theme="new-theme">
-  <div class="theme-preview new-theme"></div>
-  <span>New Theme</span>
-</div>
-```
 
 ## 📄 License
 
@@ -124,7 +65,6 @@ MIT License - See [LICENSE](LICENSE) file for details.
 ## 📬 Contact
 
 - **Email**: [iruhul8750@gmail.com](mailto:iruhul8750@gmail.com)
-- **Phone**: +91 7678361127
 - **LinkedIn**: [Ruhul Islam](https://www.linkedin.com/in/ruhulislam2022/)
 - **GitHub**: [iruhul8750](https://github.com/iruhul8750)
 
