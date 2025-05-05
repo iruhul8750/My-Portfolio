@@ -466,6 +466,10 @@ h2::after {
 .about-text {
     flex: 1;
     min-width: 300px;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+  color: #fbd0b4;
 }
 
 .about-image {
