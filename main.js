@@ -1,105 +1,61 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize particles.js with theme-specific configuration
-    function initParticles() {
-        // Destroy existing particles if they exist
-        if (window.pJSDom && window.pJSDom.length > 0) {
-            window.pJSDom[0].pJS.fn.vendors.destroypJS();
-        }
+    // Raindrop particles animation
+    function createRaindrops() {
+        const container = document.getElementById('particles-container');
+        const particleCount = Math.floor(window.innerWidth / 10);
 
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 80,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: getComputedStyle(document.documentElement).getPropertyValue('--particle-color').trim() || '#4361ee'
-                },
-                shape: {
-                    type: "circle",
-                    stroke: {
-                        width: 0,
-                        color: "#000000"
-                    },
-                    polygon: {
-                        nb_sides: 5
-                    }
-                },
-                opacity: {
-                    value: 0.5,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 2,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: getComputedStyle(document.documentElement).getPropertyValue('--particle-color').trim() || '#4361ee',
-                    opacity: 0.2,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 2,
-                    direction: "none",
-                    random: true,
-                    straight: false,
-                    out_mode: "out",
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: "grab"
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: "push"
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 140,
-                        line_linked: {
-                            opacity: 0.5
-                        }
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
-                }
-            },
-            retina_detect: true
-        });
+        for (let i = 0; i < particleCount; i++) {
+            createRaindrop(container);
+        }
     }
-    // Initialize particles on load
-    initParticles();
+
+    function createRaindrop(container) {
+        const raindrop = document.createElement('div');
+        raindrop.classList.add('raindrop');
+
+        // Random properties
+        const left = Math.random() * 100;
+        const height = 5 + Math.random() * 15;
+        const delay = Math.random() * 5;
+        const duration = 1 + Math.random() * 3;
+
+        raindrop.style.left = `${left}%`;
+        raindrop.style.height = `${height}px`;
+        raindrop.style.animationDelay = `${delay}s`;
+        raindrop.style.animationDuration = `${duration}s`;
+
+        // Create splash effect when raindrop hits bottom
+        raindrop.addEventListener('animationiteration', () => {
+            createSplash(container, left);
+        });
+
+        container.appendChild(raindrop);
+    }
+
+    function createSplash(container, left) {
+        const splash = document.createElement('div');
+        splash.classList.add('splash');
+
+        splash.style.left = `${left}%`;
+        splash.style.bottom = '0';
+        splash.style.animation = 'splash 0.5s ease-out forwards';
+
+        splash.addEventListener('animationend', () => {
+            splash.remove();
+        });
+
+        container.appendChild(splash);
+    }
+
+    // Initialize raindrops
+    createRaindrops();
+
+    // Update particles on resize
+    window.addEventListener('resize', function() {
+        const container = document.getElementById('particles-container');
+        container.innerHTML = '';
+        createRaindrops();
+    });
 
     // Theme switching functionality
     const themeOptions = document.querySelectorAll('.theme-option');
@@ -122,11 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add special effects for certain themes
             if (theme === 'cyberpunk') {
                 document.body.classList.add('cyberpunk-theme');
-            } else if (theme === 'glitchcore') {
-                document.body.classList.add('glitchcore-theme');
-            } else {
-                document.body.classList.remove('cyberpunk-theme');
-                document.body.classList.remove('glitchcore-theme');
             }
         });
 
@@ -135,11 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 html.removeAttribute('data-theme-preview');
                 if (savedTheme === 'cyberpunk') {
                     document.body.classList.add('cyberpunk-theme');
-                } else if (savedTheme === 'glitchcore') {
-                    document.body.classList.add('glitchcore-theme');
                 } else {
                     document.body.classList.remove('cyberpunk-theme');
-                    document.body.classList.remove('glitchcore-theme');
                 }
             }, 100);
         });
@@ -151,28 +99,31 @@ document.addEventListener('DOMContentLoaded', function() {
             html.removeAttribute('data-theme-preview');
             localStorage.setItem('portfolio-theme', theme);
 
-            // Reinitialize particles with new theme colors
-            initParticles();
+            // Update particle colors
+            updateParticleColors();
 
             // Add special effects for certain themes
             if (theme === 'cyberpunk') {
                 document.body.classList.add('cyberpunk-theme');
-                document.body.classList.remove('glitchcore-theme');
-            } else if (theme === 'glitchcore') {
-                document.body.classList.add('glitchcore-theme');
-                document.body.classList.remove('cyberpunk-theme');
             } else {
                 document.body.classList.remove('cyberpunk-theme');
-                document.body.classList.remove('glitchcore-theme');
             }
         });
     });
 
+    // Update particle colors based on theme
+    function updateParticleColors() {
+        const particles = document.querySelectorAll('.raindrop, .splash');
+        const color = getComputedStyle(document.documentElement).getPropertyValue('--particle-color').trim();
+
+        particles.forEach(particle => {
+            particle.style.background = color;
+        });
+    }
+
     // Set initial theme class
     if (savedTheme === 'cyberpunk') {
         document.body.classList.add('cyberpunk-theme');
-    } else if (savedTheme === 'glitchcore') {
-        document.body.classList.add('glitchcore-theme');
     }
 
     // Home button functionality
@@ -331,29 +282,20 @@ document.addEventListener('DOMContentLoaded', function() {
         logo.style.transform = 'scale(1)';
     });
 
-    // Social sidebar animation
-    const socialSidebar = document.querySelector('.social-sidebar');
-    setTimeout(() => {
-        socialSidebar.classList.add('visible');
-    }, 1000);
-
-    // Add hover effects for social buttons
-    const socialButtons = document.querySelectorAll('.social-btn');
-    socialButtons.forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            button.style.transform = 'translateX(10px)';
-            if (window.innerWidth <= 768) {
-                button.style.transform = 'translateY(-10px)';
-            }
-        });
-
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'translateX(0)';
-            if (window.innerWidth <= 768) {
-                button.style.transform = 'translateY(0)';
-            }
-        });
+// Left social media links hover effects
+document.querySelectorAll('.left-social-icon').forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 768) {
+            icon.style.transform = 'translateX(20px) scale(1.1)';
+        } else {
+            icon.style.transform = 'translateY(-10px) scale(1.1)';
+        }
     });
+
+    icon.addEventListener('mouseleave', () => {
+        icon.style.transform = 'translateX(0) scale(1)';
+    });
+});
 
     // Akoode-inspired animations
     const animateOnScroll = () => {

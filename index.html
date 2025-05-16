@@ -32,56 +32,94 @@
             animation: scanline 6s linear infinite;
         }
 
-        /* Glitchcore effect */
-        .glitchcore-theme::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                linear-gradient(90deg, rgba(255,0,0,0.05) 1px, transparent 1px),
-                linear-gradient(0deg, rgba(255,0,0,0.05) 1px, transparent 1px);
-            background-size: 10px 10px;
-            pointer-events: none;
-            z-index: 99;
-            animation: glitch 0.5s infinite alternate;
-        }
-
         @keyframes scanline {
             0% { background-position: 0 0; }
             100% { background-position: 0 100%; }
         }
 
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        /* Raindrop particles */
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            background: var(--particle-color);
+            animation: falling linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes falling {
+            0% {
+                transform: translateY(-100px) rotate(10deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(20deg);
+                opacity: 0;
+            }
+        }
+
+        /* Splash effect */
+        .splash {
+            position: absolute;
+            width: 6px;
+            height: 3px;
+            background: var(--particle-color);
+            border-radius: 50%;
+            opacity: 0;
+            animation: splash 0.5s ease-out forwards;
+        }
+
+        @keyframes splash {
+            0% {
+                transform: scale(0);
+                opacity: 0.6;
+            }
+            80% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-   <div class="social-sidebar">
-    <div class="social-container">
-        <a href="https://www.linkedin.com/in/ruhulislam2022/" target="_blank" class="social-btn linkedin">
-            <i class="fab fa-linkedin-in"></i>
-            <span class="tooltip">LinkedIn</span>
-        </a>
-        <a href="https://github.com/iruhul8750" target="_blank" class="social-btn github">
-            <i class="fab fa-github"></i>
-            <span class="tooltip">GitHub</span>
-        </a>
-        <a href="#" target="_blank" class="social-btn twitter">
-            <i class="fab fa-twitter"></i>
-            <span class="tooltip">Twitter</span>
-        </a>
-    </div>
+
+<!-- Left Side Social Media Links -->
+<div class="left-social-links">
+    <!--<a href="https://www.facebook.com/" target="_blank" class="left-social-icon facebook">
+        <span class="social-name">Facebook</span>
+        <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://twitter.com/" target="_blank" class="left-social-icon twitter">
+        <span class="social-name">Twitter</span>
+        <i class="fab fa-twitter"></i>
+    </a> -->
+   <a href="https://github.com/iruhul8750/" target="_blank" class="left-social-icon github">
+        <span class="social-name">GitHub</span>
+        <i class="fab fa-github"></i>
+       </a>
+
+    <a href="https://www.linkedin.com/in/ruhulislam2022/" target="_blank" class="left-social-icon linkedin">
+        <span class="social-name">LinkedIn</span>
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="https://www.youtube.com/@MR.ULTRABGMI" target="_blank" class="left-social-icon youtube">
+        <span class="social-name">YouTube</span>
+        <i class="fab fa-youtube"></i>
+    </a>
+
+     <a href="https://instagram.com/" target="_blank" class="left-social-icon instagram">
+        <span class="social-name">Instagram</span>
+        <i class="fab fa-instagram"></i>
+     </a>
 </div>
-    <div id="particles-js"></div>
+
+    <div id="particles-container"></div>
     <div class="theme-overlay"></div>
 
     <header>
@@ -103,27 +141,15 @@
                             <div class="theme-options">
                                 <div class="theme-option" data-theme="default" title="Default Theme">
                                     <div class="theme-preview default-theme"></div>
-                                    <span>Light</span>
+                                    <span>Modern</span>
                                 </div>
                                 <div class="theme-option" data-theme="cyberpunk" title="Cyberpunk Theme">
                                     <div class="theme-preview cyberpunk-theme"></div>
                                     <span>Cyberpunk</span>
                                 </div>
-                                <div class="theme-option" data-theme="retro-spy" title="Retro Spy Theme">
-                                    <div class="theme-preview retro-spy-theme"></div>
-                                    <span>Retro Spy</span>
-                                </div>
                                 <div class="theme-option" data-theme="neon-noir" title="Neon Noir Theme">
                                     <div class="theme-preview neon-noir-theme"></div>
                                     <span>Neon Noir</span>
-                                </div>
-                                <div class="theme-option" data-theme="cosmic-galaxy" title="Cosmic Galaxy Theme">
-                                    <div class="theme-preview cosmic-galaxy-theme"></div>
-                                    <span>Cosmic Galaxy</span>
-                                </div>
-                                <div class="theme-option" data-theme="glitchcore" title="Glitchcore Theme">
-                                    <div class="theme-preview glitchcore-theme"></div>
-                                    <span>Glitchcore</span>
                                 </div>
                             </div>
                         </div>
@@ -139,12 +165,20 @@
     <section id="hero" class="section-animate">
         <div class="container">
             <div class="hero-content">
-                <h2 class="animate__animated animate__fadeInDown name-animation">Hi, I'm Ruhul Islam</h2>
-                <h3 class="animate__animated animate__fadeInUp">Cybersecurity Enthusiast & Developer</h3>
-                <p class="animate__animated animate__fadeInUp">Aspiring engineer passionate about solving problems with creativity in Cyber Security and Software Development</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn animate__animated animate__fadeInUp">Get In Touch</a>
-                    <a href="#resume" class="btn btn-secondary animate__animated animate__fadeInUp">View Resume</a>
+                <div class="hero-text">
+                    <h2 class="animate__animated animate__fadeInDown name-animation">Hi, I'm Ruhul Islam</h2>
+                    <h3 class="animate__animated animate__fadeInUp">Cybersecurity Enthusiast & Developer</h3>
+                    <p class="animate__animated animate__fadeInUp">Aspiring engineer passionate about solving problems with creativity in Cyber Security and Software Development</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn animate__animated animate__fadeInUp">Get In Touch</a>
+                        <a href="#resume" class="btn btn-secondary animate__animated animate__fadeInUp">View Resume</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <div class="glow"></div>
+                        <img src="https://github.com/iruhul8750/Hosted-Images/blob/main/profile1.jpg?raw=true" alt="Ruhul Islam" class="profile-img">
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,23 +189,24 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Aspiring engineer who is led by curiosity and a desire to solve problems with creativity and originality. Looking for opportunities to use and expand my technical and engineering knowledge in the space of Cyber Security, Software Development, Programming, and Marketing. Passionate about building innovative solutions that make a meaningful impact, I thrive in collaborative environments that challenge me to grow. With a strong foundation in computer science and a keen interest in emerging technologies, I am eager to contribute to forward-thinking projects while continuously learning and evolving as a professional. I believe in blending technical expertise with strategic thinking to drive real-world results.</p>
+                    <p>Aspiring engineer who is led by curiosity and a dativity and originality. Looking for opportunities to use and expand my technical and engineering knowledge in the space of Cyber Security, Software Development, Programming, and Marketing. Passionate about building innovative solutions that make a meaningful impact, I thrive in collaborative environments that challenge me to grow. With a strong foundation in computer science and a keen interest in emerging technologies, I am eager to contribute to forward-thinking projects while continuously learning and evolving as a professional. I believe in blending technical expertise with strategic thinking to drive real-world results.</p>
+                    &nbsp
                     <div class="desired-spaces">
                         <h4>Desired Spaces:</h4>
                         <div class="space-tags">
-                            <span>Security Analyst</span>
-                            <span>Vulnerability Management</span>
-                            <span>Penetration Testing</span>
-                            <span>Application Security</span>
-                            <span>Endpoint Security</span>
-                            <span>Python Developer</span>
+                            <span>Security Analyst, </span>
+                            <span>Vulnerability Management, </span>
+                            <span>Penetration Testing, </span>
+                            <span>Application Security, </span>
+                            <span>Endpoint Security, </span>
+                            <span>Python Developer.</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
                     <div class="image-wrapper">
                         <div class="glow"></div>
-                        <img src="https://github.com/iruhul8750/Hosted-Images/blob/main/profile1.jpg?raw=true" alt="Ruhul Islam" class="profile-img">
+                        <img src="https://github.com/iruhul8750/Hosted-Images/blob/main/WhatsApp%20Image%202025-05-16%20at%203.47.49%20PM.jpeg?raw=true" alt="Ruhul Islam" class="profile-img">
                     </div>
                 </div>
             </div>
@@ -387,12 +422,6 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Gurugram, Haryana – 122001</p>
                     </div>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/ruhulislam2022/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/iruhul8750" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
                 <form id="contact-form" class="section-animate">
                     <div class="form-group">
                         <label for="name">Your Name:</label>
@@ -412,13 +441,12 @@
         </div>
     </section>
 
-    <footer>
+   <footer>
         <div class="container">
             <p>© 2025 Ruhul Islam. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="main.js"></script>
